@@ -1,6 +1,6 @@
 # BrainCLIP
 
-This code is prepared for "brain clip".
+This code is prepared for **"BrainClip"**.
 
 ## Overview
 
@@ -10,8 +10,8 @@ This code is prepared for "brain clip".
 ![The flowchart.](./model.png)
 
 ## Installation
-Download Antiformer:
-```[git clone https://github.com/wq2581/Antiformer](https://github.com/QSong-github/BrainCLIP.git)```
+Download BrainClip:
+```git clone https://github.com/wq2581/Antiformer)```
 
 Install Environment:
 ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
