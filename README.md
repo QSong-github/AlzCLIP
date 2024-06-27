@@ -11,7 +11,7 @@ This code is prepared for "brain clip".
 
 ## Installation
 Download Antiformer:
-```git clone https://github.com/wq2581/Antiformer```
+```[git clone https://github.com/wq2581/Antiformer](https://github.com/QSong-github/BrainCLIP.git)```
 
 Install Environment:
 ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
