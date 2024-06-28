@@ -57,6 +57,6 @@ We also provide training code using only SNPs or labels. If you want to try it, 
 
 ## Quick start
 
-If you want to use our model, you can download the pre-trained BrainClip model from [here](https://github.com/QSong-github/BrainCLIP/tree/main/save) and quickly try it by the tutorial.
+If you want to use our model, you can download the pre-trained BrainClip model from [here](https://github.com/QSong-github/BrainCLIP/tree/main/save) and quickly try it by the [tutorial](https://github.com/QSong-github/BrainCLIP/blob/main/tutorial.ipynb).
 
    
