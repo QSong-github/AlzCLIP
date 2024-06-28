@@ -20,6 +20,7 @@ Install Environment:
 ## Running
 
 ### Train the BrainClip with SNABLE.
+
    
    (1) Get the raw data.
    ```bash
@@ -41,17 +42,17 @@ Install Environment:
    $ python main.py
    ```
    
+### Inference   
+
    (4) Inference.
    ```bash
-   $ cd /path/to/data
+   $ cd /path/to/Uni
    $ python infer.py
    ```
 
-   
-### Inference
+### Train the BrainClip with SNP or Label.
 
-   We also provide partially processed data (2000 sequences) as demo, located under the ```./AntiFormer/subdt``` path. And the pre-trained model can be accessed from [google drive](https://drive.google.com/file/d/1D-mkFwoJzu7E__vJc3ahnFE4UVGYz4_Q/view?usp=sharing). Please download the model and put it into ```./AntiFormer/model_save``` directory.
-   However，if you have processed all the data, you can replace the ```./subdt``` path with your data path for training by . And be careful to change the hyperparameters in the ```main.py``` to suit your hardware and target.
+We also provide training code using only SNPs or labels. If you want to try it, please visit the [SNP](https://github.com/QSong-github/BrainCLIP/tree/main/SNP) folder or [Label](https://github.com/QSong-github/BrainCLIP/tree/main/Label) folder.
 
 
 ## Quick start
