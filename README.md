@@ -11,12 +11,10 @@ This code is prepared for **"BrainClip"**.
 
 ## Installation
 Download BrainClip:
-```git clone https://github.com/wq2581/Antiformer)```
+```git clone https://github.com/QSong-github/BrainCLIP```
 
 Install Environment:
 ```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
-
-Our code is all based on python. In order to install dependencies please enter the project path ```./AntiFormer``` and activate your python environment.
 
 
 ## Running
