@@ -19,39 +19,36 @@ Install Environment:
 
 ## Running
 
-### Train from scratch
-   The codes for dataset creating are stored in the ```./AntiFormer/data``` directory. If you want to train from scratch, you need to start with data processing.
+### Train the BrainClip with SNABLE.
    
-   (1) Ddownload the required data.
+   (1) Get the raw data.
    ```bash
-   $ cd /path/to/data
-   $ python data_download.py
+   $ cd /path/to/AD_43SNP.zip
+   $ unzip AD_43SNP.zip
+
+   $ cd /path/to/reukbb.zip
+   $ unzip reukbb.zip
    ```
    
-   (2) Get the frequency statistics. Of course, we also provide the results of frequency statistics saved as txt files in this directory.
+   (2) Build the dataset.
    ```bash
-   $ cd /path/to/data
-   $ python data_process.py
-   ```
-   (3) Build the dataset.
-   ```bash
-   $ cd /path/to/data
+   $ cd /path/to/Uni
    $ python dataset_making.py
    ```
-   
-   (4) Tokenize the input sequence
+   (3) Train the model.
    ```bash
-   $ cd /path/to/data
-   $ python dt_rebuild.py
-   ```
-   
-   (5) Run AntiFormer and get the prediction results.
-   ```bash
-   $ cd /path/to/AntiFormer
+   $ cd /path/to/Uni
    $ python main.py
    ```
    
-### From pre-trained model
+   (4) Inference.
+   ```bash
+   $ cd /path/to/data
+   $ python infer.py
+   ```
+
+   
+### Inference
 
    We also provide partially processed data (2000 sequences) as demo, located under the ```./AntiFormer/subdt``` path. And the pre-trained model can be accessed from [google drive](https://drive.google.com/file/d/1D-mkFwoJzu7E__vJc3ahnFE4UVGYz4_Q/view?usp=sharing). Please download the model and put it into ```./AntiFormer/model_save``` directory.
    However，if you have processed all the data, you can replace the ```./subdt``` path with your data path for training by . And be careful to change the hyperparameters in the ```main.py``` to suit your hardware and target.
@@ -59,6 +56,6 @@ Install Environment:
 
 ## Quick start
 
-If you want to use our model, you can download the pre-trained model from [google drive](https://drive.google.com/file/d/1D-mkFwoJzu7E__vJc3ahnFE4UVGYz4_Q/view?usp=sharing) and quickly test it using the antiboy sequence provided by the tutorial.
+If you want to use our model, you can download the pre-trained BrainClip model from [here](https://github.com/QSong-github/BrainCLIP/tree/main/save) and quickly try it by the tutorial.
 
    
