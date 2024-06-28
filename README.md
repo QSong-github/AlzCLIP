@@ -14,7 +14,7 @@ Download BrainClip:
 ```git clone https://github.com/QSong-github/BrainCLIP```
 
 Install Environment:
-```pip install -r requirements.txt``` or ```conda env create -f environment.yml```
+```pip install -r requirements.txt``` or ```conda env create -f environment.yaml```
 
 
 ## Running
