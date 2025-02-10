@@ -1,6 +1,6 @@
-# BrainCLIP
+# AlzCLIP
 
-This code is prepared for **"BrainClip"**.
+This code is prepared for **"AlzCLIP"**.
 
 ## Overview
 
@@ -11,7 +11,7 @@ This code is prepared for **"BrainClip"**.
 
 ## Installation
 Download BrainClip:
-```git clone https://github.com/QSong-github/BrainCLIP```
+```git clone https://github.com/QSong-github/AlzCLIP```
 
 Install Environment:
 ```pip install -r requirements.txt``` or ```conda env create -f environment.yaml```
@@ -19,7 +19,7 @@ Install Environment:
 
 ## Running
 
-### Train the BrainClip with SNABLE.
+### Train the AlzCLIP with SNABLE.
 
    
    (1) Get the raw data.
