@@ -9,9 +9,11 @@ AlzCLIP is a contrastive learning-based framework designed to integrate genetic 
   - [Prerequisites](#prerequisites)
   - [Input Data](#input-data)
 - [Quick Start (Basic Usage)](#quick-start-basic-usage)
+- [Running Details](#running-details)
+  - [Training AlzCLIP](#training-alzclip)
+  - [Ensemble Voting Inference](#ensemble-voting-inference)
+  - [Tutorial Notebook](#tutorial-notebook)
 - [Output](#output)
-- [Advanced Settings](#advanced-settings)
-- [Examples and Notebooks](#examples-and-notebooks)
 - [Contact](#contact)
 
 ## Background
@@ -19,10 +21,11 @@ Alzheimer’s disease (AD) is a complex neurodegenerative disorder driven by gen
 Traditional single-modality approaches, relying solely on genetic or imaging features, often fall short in prediction accuracy and biological interpretability.
 
 AlzCLIP addresses this gap by:
-* Learning a unified latent space through contrastive learning that aligns SNP and MRI features.
-* Enhancing disease classification through a voting ensemble integrating SVM, Random Forest, and XGBoost classifiers.
-* Providing interpretable multi-modal feature embeddings for downstream analysis.
-Flowchart of AlzCLIP
+- Learning a unified latent space through contrastive learning that aligns SNP and MRI features.
+- Enhancing disease classification through a voting ensemble integrating SVM, Random Forest, and XGBoost classifiers.
+- Providing interpretable multi-modal feature embeddings for downstream analysis.
+
+### Flowchart of AlzCLIP
 ![image](https://github.com/user-attachments/assets/c2c086c3-838a-49d3-9fac-2dbc96dbee2f)
 
 ## Getting Started
@@ -82,25 +85,31 @@ python infer.py --model_path path_to_trained_model.pth --data_path path_to_proce
 ```
 
 ### Running Details
-Training AlzCLIP
+#### Training AlzCLIP
 Run `main.py` to:
 * Pretrain embeddings using contrastive loss
 * Fine-tune embeddings for classification using cross-entropy loss
 
 
-Ensemble Voting Inference
+#### Ensemble Voting Inference
 Run `infer.py` to:
 * Extract SNP and MRI embeddings
 * Train SVM, Random Forest, and XGBoost classifiers
 * Perform soft voting (averaging predicted probabilities)
 * Output prediction results and evaluation metrics
 
-
+#### Tutorial Notebook
 You can find detailed examples in the `tutorial notebook`, including:
 * How to load pretrained AlzCLIP
 * How to extract embeddings
 * How to train ensemble classifiers (SVM, RF, XGB)
 * How to ensemble vote and evaluate model performance
+
+### Output
+After inference, AlzCLIP generates:
+* `predictions.csv`: containing true labels, predicted labels, and predicted probabilities.
+* Model evaluation metrics: accuracy and AUC (Area Under Curve).
+Outputs are saved under the specified --output_dir.
 
 
 ### Contact
