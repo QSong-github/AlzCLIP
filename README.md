@@ -1,62 +1,110 @@
 # AlzCLIP
 
-This code is prepared for **"AlzCLIP"**.
-
-## Overview
-
-### Abstract
+AlzCLIP is a contrastive learning-based framework designed to integrate genetic variants (SNPs) and brain imaging features into a shared representation space for Alzheimer's disease (AD) prediction. By combining contrastive pretraining with a voting-based ensemble classifier, AlzCLIP enables robust multi-modal disease prediction and provides insights into genotype–phenotype interactions.
 
 
-![The flowchart.](./model.png)
+## Table of Contents
+- [Background](#background)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Input Data](#input-data)
+- [Quick Start (Basic Usage)](#quick-start-basic-usage)
+- [Output](#output)
+- [Advanced Settings](#advanced-settings)
+- [Examples and Notebooks](#examples-and-notebooks)
+- [Contact](#contact)
 
-## Installation
-Download BrainClip:
-```git clone https://github.com/QSong-github/AlzCLIP```
+## Background
+Alzheimer’s disease (AD) is a complex neurodegenerative disorder driven by genetic predisposition and brain structural changes.
+Traditional single-modality approaches, relying solely on genetic or imaging features, often fall short in prediction accuracy and biological interpretability.
 
-Install Environment:
-```pip install -r requirements.txt``` or ```conda env create -f environment.yaml```
-
-
-## Running
-
-### Train the AlzCLIP with SNABLE.
-
-   
-   (1) Get the raw data.
-   ```bash
-   $ cd /path/to/AD_43SNP.zip
-   $ unzip AD_43SNP.zip
-
-   $ cd /path/to/reukbb.zip
-   $ unzip reukbb.zip
-   ```
-   
-   (2) Build the dataset.
-   ```bash
-   $ cd /path/to/Uni
-   $ python dataset_making.py
-   ```
-   (3) Train the model.
-   ```bash
-   $ cd /path/to/Uni
-   $ python main.py
-   ```
-   
-### Inference   
-
-   (4) Inference.
-   ```bash
-   $ cd /path/to/Uni
-   $ python infer.py
-   ```
-
-### Train the BrainClip with SNP or Label.
-
-We also provide training code using only SNPs or labels. If you want to try it, please visit the [SNP](https://github.com/QSong-github/BrainCLIP/tree/main/SNP) folder or [Label](https://github.com/QSong-github/BrainCLIP/tree/main/Label) folder.
+AlzCLIP addresses this gap by:
+* Learning a unified latent space through contrastive learning that aligns SNP and MRI features.
+* Enhancing disease classification through a voting ensemble integrating SVM, Random Forest, and XGBoost classifiers.
+* Providing interpretable multi-modal feature embeddings for downstream analysis.
+Flowchart of AlzCLIP
+![image](https://github.com/user-attachments/assets/9842ac80-003e-4e1b-9258-b9f31f0affbe)
 
 
-## Quick start
+## Getting Started
+### Prerequisites
+You need Python 3.7+ and the following libraries:
+* numpy
+* pandas
+* scipy
+* scikit-learn
+* torch
+* torchvision
+* tqdm
+* shap
+* matplotlib (optional for visualization)
 
-If you want to use our model, you can download the pre-trained BrainClip model from [here](https://github.com/QSong-github/BrainCLIP/tree/main/save) and quickly try it by the [tutorial](https://github.com/QSong-github/BrainCLIP/blob/main/tutorial.ipynb).
+You can install all required packages via:
+```python
+pip install -r requirements.txt
+```
+or using conda:
+```python
+conda env create -f environment.yaml
+```
+
+### Input Data
+AlzCLIP expects:
+* SNP feature matrix per subject
+* MRI ROI feature matrix per subject
+
+We provide example datasets:
+* AD_43SNP.zip: SNP feature files
+* reukbb.zip: Imaging feature files
+
+Subjects must be aligned across SNP and imaging files.
+
+
+### Quick Start (Basic Usage)
+Clone the repository:
+```python
+git clone https://github.com/QSong-github/AlzCLIP
+```
+
+Build the dataset:
+```python
+cd /path/to/Uni
+python dataset_making.py
+```
+
+Train the model:
+```python
+git clone https://github.com/QSong-github/AlzCLIP
+```
+
+Run inference with ensemble voting:
+```python
+python infer.py --model_path path_to_trained_model.pth --data_path path_to_processed_data --output_dir ./output
+```
+
+### Running Details
+Training AlzCLIP
+Run `main.py` to:
+* Pretrain embeddings using contrastive loss.
+* Fine-tune embeddings for classification using cross-entropy loss.
+
+Ensemble Voting Inference
+Run `infer.py` to:
+* Extract SNP and MRI embeddings,
+* Train SVM, Random Forest, and XGBoost classifiers,
+* Perform soft voting (averaging predicted probabilities),
+* Output prediction results and evaluation metrics.
+
+You can find detailed examples in the `tutorial notebook`, including:
+* How to load pretrained AlzCLIP,
+* How to extract embeddings,
+* How to train ensemble classifiers (SVM, RF, XGB),
+* How to ensemble vote and evaluate model performance.
+
+### Contact
+For questions, issues, or feature requests, feel free to [open an issue] or contact me directly.  
+If you use AlzCLIP in your research, please cite:
+`AlzCLIP: A Multi-Modal Contrastive Learning Model Integrating Genetic and Imaging Data for Alzheimer's Disease!`.
+
 
    
