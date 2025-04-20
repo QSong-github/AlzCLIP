@@ -84,21 +84,24 @@ python infer.py --model_path path_to_trained_model.pth --data_path path_to_proce
 ### Running Details
 Training AlzCLIP
 Run `main.py` to:
-* Pretrain embeddings using contrastive loss.
-* Fine-tune embeddings for classification using cross-entropy loss.
+* Pretrain embeddings using contrastive loss
+* Fine-tune embeddings for classification using cross-entropy loss
+
 
 Ensemble Voting Inference
 Run `infer.py` to:
-* Extract SNP and MRI embeddings,
-* Train SVM, Random Forest, and XGBoost classifiers,
-* Perform soft voting (averaging predicted probabilities),
-* Output prediction results and evaluation metrics.
+* Extract SNP and MRI embeddings
+* Train SVM, Random Forest, and XGBoost classifiers
+* Perform soft voting (averaging predicted probabilities)
+* Output prediction results and evaluation metrics
+
 
 You can find detailed examples in the `tutorial notebook`, including:
-* How to load pretrained AlzCLIP,
-* How to extract embeddings,
-* How to train ensemble classifiers (SVM, RF, XGB),
-* How to ensemble vote and evaluate model performance.
+* How to load pretrained AlzCLIP
+* How to extract embeddings
+* How to train ensemble classifiers (SVM, RF, XGB)
+* How to ensemble vote and evaluate model performance
+
 
 ### Contact
 For questions, issues, or feature requests, feel free to [open an issue] or contact me directly.  
