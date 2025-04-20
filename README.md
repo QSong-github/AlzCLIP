@@ -67,7 +67,7 @@ git clone https://github.com/QSong-github/AlzCLIP
 
 Build the dataset:
 ```python
-cd /path/to/Uni
+cd /path/to/data
 python dataset_making.py
 ```
 
@@ -105,6 +105,8 @@ You can find detailed examples in the `tutorial notebook`, including:
 
 ### Contact
 For questions, issues, or feature requests, feel free to [open an issue] or contact me directly.  
+
+
 If you use AlzCLIP in your research, please cite:
 `AlzCLIP: A Multi-Modal Contrastive Learning Model Integrating Genetic and Imaging Data for Alzheimer's Disease!`.
 
