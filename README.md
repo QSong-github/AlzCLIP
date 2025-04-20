@@ -23,8 +23,7 @@ AlzCLIP addresses this gap by:
 * Enhancing disease classification through a voting ensemble integrating SVM, Random Forest, and XGBoost classifiers.
 * Providing interpretable multi-modal feature embeddings for downstream analysis.
 Flowchart of AlzCLIP
-![image](https://github.com/user-attachments/assets/9842ac80-003e-4e1b-9258-b9f31f0affbe)
-
+![image](https://github.com/user-attachments/assets/c2c086c3-838a-49d3-9fac-2dbc96dbee2f)
 
 ## Getting Started
 ### Prerequisites
