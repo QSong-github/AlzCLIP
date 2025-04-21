@@ -108,11 +108,7 @@ After inference, AlzCLIP generates:
 * Model evaluation metrics: accuracy and AUC (Area Under Curve).
 Outputs are saved under the specified --output_dir.
 
-
-### Contact
-For questions, issues, or feature requests, feel free to [open an issue] or contact me directly.  
-
-
+### Citation
 If you use AlzCLIP in your research, please cite:
 `Integrating Genetic and Imaging Data for Alzheimer’s Disease Diagnosis and Interpretation'
 
