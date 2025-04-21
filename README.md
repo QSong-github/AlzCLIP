@@ -114,7 +114,7 @@ For questions, issues, or feature requests, feel free to [open an issue] or cont
 
 
 If you use AlzCLIP in your research, please cite:
-`AlzCLIP: A Multi-Modal Contrastive Learning Model Integrating Genetic and Imaging Data for Alzheimer's Disease!`.
+`Integrating Genetic and Imaging Data for Alzheimer’s Disease Diagnosis and Interpretation'
 
 
    
