@@ -1,5 +1,5 @@
 """
-ensemble voting using SVM, Random Forest, and XGBoost.
+Ensemble voting using SVM, Random Forest, and XGBoost.
 Performs soft voting by averaging predicted probabilities.
 """
 
