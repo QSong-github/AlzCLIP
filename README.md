@@ -2,6 +2,16 @@
 
 AlzCLIP is a contrastive learning-based framework designed to integrate genetic variants (SNPs) and brain imaging features into a shared representation space for Alzheimer's disease (AD) prediction. By combining contrastive pretraining with a voting-based ensemble classifier, AlzCLIP enables robust multi-modal disease prediction and provides insights into genotype–phenotype interactions.
 
+### Key Features
+Two-Stage Learning
+- Stage 1: Contrastive pretraining for cross-modal representation learning
+- Stage 2: Supervised fine-tuning for Alzheimer's classification
+  
+Flexible Multimodal Inference
+- Combined Mode: SNP + MRI for maximum accuracy
+- SNP-Only Mode: When genetic data is available but MRI is not
+- MRI-Only Mode: When imaging data is available but genetic data is not
+
 
 ## Table of Contents
 - [Background](#background)
@@ -51,13 +61,17 @@ conda env create -f environment.yaml
 AlzCLIP expects:
 * SNP feature matrix per subject
 * MRI ROI feature matrix per subject
+* Labels
+Note: Subjects must be aligned across SNP and imaging files.
 
-We provide example datasets:
-* AD_43SNP.zip: SNP feature files
-* reukbb.zip: Imaging feature files
-
-Subjects must be aligned across SNP and imaging files.
-
+To prepare your dataset:
+```python
+python dataset_making.py \
+    --snp_path ./SNP_data/ \
+    --img_path ./MRI_features.csv \
+    --output_path ./my_dataset \
+    --label_type binary          # or 'multiclass' for multiple categories
+```
 
 ### Quick Start (Basic Usage)
 Clone the repository:
@@ -72,13 +86,14 @@ python dataset_making.py
 ```
 
 Train the model:
+Run the complete training pipeline:
 ```python
-git clone https://github.com/QSong-github/AlzCLIP
+python main.py --pretrain_epochs 100 --finetune_epochs 50 --batch_size 128
 ```
 
 Run inference with ensemble voting:
 ```python
-python infer.py --model_path path_to_trained_model.pth --data_path path_to_processed_data --output_dir ./output
+python infer.py 
 ```
 
 ### Running Details
@@ -86,27 +101,32 @@ python infer.py --model_path path_to_trained_model.pth --data_path path_to_proce
 Run `main.py` to:
 * Pretrain embeddings using contrastive loss
 * Fine-tune embeddings for classification using cross-entropy loss
-
+```python
+python main.py \
+    --pretrain_epochs 100 \      # Contrastive learning epochs
+    --finetune_epochs 50 \       # Supervised learning epochs
+    --batch_size 128 \           # Training batch size
+    --pretrain_lr 0.001 \        # Pretraining learning rate
+    --finetune_lr 0.0001 \       # Fine-tuning learning rate
+    --save_path ./save           # Model save directory
+    --dataset_path ./snp_lbl_img_dataset_ova  # Dataset path (default)
+```
 
 #### Ensemble Voting Inference
 Run `infer.py` to:
-* Extract SNP and MRI embeddings
+* Extract SNP and MRI embeddings from trained model
 * Train SVM, Random Forest, and XGBoost classifiers
 * Perform soft voting (averaging predicted probabilities)
-* Output prediction results and evaluation metrics
+* Output performance metrics 
 
-#### Tutorial Notebook
-You can find detailed examples in the `tutorial notebook`, including:
-* How to load pretrained AlzCLIP
-* How to extract embeddings
-* How to train ensemble classifiers (SVM, RF, XGB)
-* How to ensemble vote and evaluate model performance
 
 ### Output
 After inference, AlzCLIP generates:
-* `predictions.csv`: containing true labels, predicted labels, and predicted probabilities.
-* Model evaluation metrics: accuracy and AUC (Area Under Curve).
-Outputs are saved under the specified --output_dir.
+* `final_results.npy`: Complete prediction results with probabilities
+* `ensemble_classifiers.pkl`: Trained ensemble models
+* `embeddings_data.npy`: Extracted SNP and MRI embeddings
+
+
 
 ### Citation
 If you use AlzCLIP in your research, please cite:
